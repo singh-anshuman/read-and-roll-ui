@@ -1,10 +1,11 @@
 import React from 'react';
-import BookCard from './BookCard.js';
+import BookList from './BookList';
+import './css/AppBody.css';
 
 export default function AppBody() {
     return (
-        <div>
-            <BookCard />
+        <div className="app-body">
+            <BookList />
         </div>
     )
 }

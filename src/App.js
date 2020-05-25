@@ -1,18 +1,19 @@
 import React from 'react';
 import AppBody from './components/AppBody';
-import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import AppHeader from './components/AppHeader';
 
 function App() {
     return (
-        <div className="container-fluid">
+        <Container fluid>
             <header>
-                <NavBar/>
+                <AppHeader/>
             </header>
             <body>
                 <AppBody/>
             </body>
-        </div>
+        </Container>
     );
 }
 
