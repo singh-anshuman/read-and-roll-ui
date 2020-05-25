@@ -10,14 +10,14 @@ export default function BookCard(props) {
                 <Card.Title className="book-title">
                     {props.book.title}
                 </Card.Title>
-                <Card.Text>
+                <div>
                     <div>
                         {props.book.author}
                     </div>
-                    <div>
+                    <div className="book-category">
                         {props.book.category}
                     </div>
-                </Card.Text>
+                </div>
             </Card.Body>
         </Card>        
     )

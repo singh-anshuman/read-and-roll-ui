@@ -1,53 +1,19 @@
 import React from 'react';
 import BookCard from './BookCard';
+import {getBooks} from './../service/BookService';
 import './css/BookList.css';
 
-export default class BookList extends React.Component {
+export default function BookList(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            books: [
-                {
-                    title: "Deep Work",
-                    author: "Cal Newport",
-                    category: "Productivity"
-                },
-                {
-                    title: "Jab Jab Jab Right Hook",
-                    author: "Gary Vaynerchuk",
-                    category: "Marketing"
-                },
-                {
-                    title: "How to win friends and influence people",
-                    author: "Dale Carnegie",
-                    category: "Self Help"
-                },
-                {
-                    title: "Atomic Habits",
-                    author: "James Clear",
-                    category: "Productivity"
-                },
-                {
-                    title: "Steve Jobs",
-                    author: "Walter Issacson",
-                    category: "Biography"
-                }
-            ]
-        }
-    }
-
-    render() {
-        return(
-            <div className="book-list">
-                {
-                    this.state.books.map((book) => {
-                        return (
-                            <BookCard book={book}/>
-                        );
-                    })
-                }
-            </div>
-        )
-    }
+    return(
+        <div className="book-list">
+            {
+                getBooks(props.searchString).map((book) => {
+                    return (
+                        <BookCard key={book.id} book={book}/>
+                    );
+                })
+            }
+        </div>
+    );
 }

@@ -6,13 +6,11 @@ import AppHeader from './components/AppHeader';
 
 function App() {
     return (
-        <Container fluid>
+        <Container>
             <header>
                 <AppHeader/>
             </header>
-            <body>
-                <AppBody/>
-            </body>
+            <AppBody/>
         </Container>
     );
 }

@@ -1,18 +1,16 @@
 .book-card {
-    border-color: lightblue;
-    border-width: 2px;
-    border-radius: 10px;
-    border-style: solid;
-
     margin: 10px;
-    margin-left:250px;
-    margin-right:250px;
+}
 
-    padding: 10px;
-
-    width: '25rem';
+div:hover {
+    border-color:darkgray;
 }
 
 .book-title {
-    color: lightskyblue;
+    color: black;
+}
+
+.book-category {
+    font-style: italic;
+    text-align: right;
 }
