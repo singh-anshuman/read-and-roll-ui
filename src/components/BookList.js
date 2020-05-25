@@ -1,6 +1,6 @@
 import React from 'react';
 import BookCard from './BookCard';
-import {getBooks} from './../service/BookService';
+import {getBooks} from './../services/BookService';
 import './css/BookList.css';
 
 export default function BookList(props) {

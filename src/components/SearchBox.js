@@ -1,5 +1,5 @@
 import React from 'react';
-import FromControl from 'react-bootstrap/FormControl';
+import Form from 'react-bootstrap/Form';
 import './css/SearchBox.css';
 
 
@@ -18,7 +18,7 @@ export default class SearchBox extends React.Component {
     render() {
         return(
             <div className="search-box">
-                <FromControl type="text" placeholder="Search Books" onChange={this.searchBooks}></FromControl>
+                <Form.Control type="text" placeholder="Search Books" onChange={this.searchBooks}></Form.Control>
             </div>
         )
     }

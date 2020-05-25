@@ -34,3 +34,7 @@ const masterBookList = [
 export function getBooks(searchString) {
     return masterBookList.filter(book=> book.title.toUpperCase().includes(searchString.toUpperCase()));
 }
+
+export function addBook(book) {
+    masterBookList.unshift(book);
+}

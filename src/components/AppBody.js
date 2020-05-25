@@ -11,6 +11,7 @@ export default class AppBody extends React.Component {
             searchString: ''
         };
         this.searchBooks = this.searchBooks.bind(this);
+        this.reloadBookList = this.reloadBookList.bind(this);
     }
 
     searchBooks(searchString) {
@@ -19,10 +20,16 @@ export default class AppBody extends React.Component {
         });
     }
 
+    reloadBookList() {
+        this.setState({
+            searchString:''
+        });
+    }
+
     render() {
         return (
             <div className="app-body">
-                <SearchBar searchBooks = {this.searchBooks}/>
+                <SearchBar searchBooks = {this.searchBooks} reloadBookList = {this.reloadBookList}/>
                 <BookList searchString={this.state.searchString}/>
             </div>
         )
