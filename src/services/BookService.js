@@ -1,4 +1,4 @@
-const masterBookList = [
+export const masterBookList = [
     {
         id: 1,
         title: "Deep Work",
