@@ -1,5 +1,4 @@
-import { createStore } from 'redux'
-import bookReducer from './reducers/bookReducer';
+import { createStore } from "redux";
+import bookReducer from "./components/dashboard/reducers/bookReducer";
 
-
-const store = createStore(bookReducer);
+export const store = createStore(bookReducer);
