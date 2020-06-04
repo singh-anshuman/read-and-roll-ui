@@ -1,5 +1,5 @@
 import React from "react";
-import BookListContainer from "../dashboard/BookListContainer";
+import BookList from "../dashboard/BookList";
 import SearchBar from "../dashboard/SearchBar";
 import "./css/AppBody.css";
 
@@ -32,7 +32,7 @@ export default class AppBody extends React.Component {
                     searchBooks={this.searchBooks}
                     reloadBookList={this.reloadBookList}
                 />
-                <BookListContainer />
+                <BookList />
             </div>
         );
     }

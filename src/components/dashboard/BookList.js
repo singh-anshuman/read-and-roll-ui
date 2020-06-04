@@ -1,8 +1,9 @@
 import React from "react";
 import BookCard from "./BookCard";
 import "./css/BookList.css";
+import { connect } from "react-redux";
 
-export default function BookList(props) {
+function BookList(props) {
     return (
         <div className="book-list">
             {props.books.map((book) => {
@@ -11,3 +12,11 @@ export default function BookList(props) {
         </div>
     );
 }
+
+function mapStateToProps(state) {
+    return {
+        books: state.books,
+    };
+}
+
+export default connect(mapStateToProps)(BookList);
