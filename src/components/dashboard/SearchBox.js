@@ -27,12 +27,6 @@ class SearchBox extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        books: state.books,
-    };
-}
-
 function mapDispatchToProps(dispatch) {
     return {
         searchBooks: (searchString) =>
@@ -40,4 +34,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);
+export default connect(null, mapDispatchToProps)(SearchBox);
