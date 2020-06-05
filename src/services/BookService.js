@@ -1,4 +1,4 @@
-export const masterBookList = [
+const masterBookList = [
     {
         id: 1,
         title: "Deep Work",
@@ -38,5 +38,7 @@ export function getBooks(searchString = "") {
 }
 
 export function addBook(book) {
-    masterBookList.unshift(book);
+    masterBookList.unshift(
+        Object.assign({}, book, { id: masterBookList.length + 1 })
+    );
 }
