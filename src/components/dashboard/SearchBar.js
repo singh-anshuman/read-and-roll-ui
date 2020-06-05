@@ -37,7 +37,7 @@ export default class SearchBar extends React.Component {
     render() {
         return (
             <div className="search-bar">
-                <SearchBox searchBooks={this.props.searchBooks} />
+                <SearchBox />
                 <Button variant="primary" onClick={this.showAddBookDialog}>
                     Add Book
                 </Button>
