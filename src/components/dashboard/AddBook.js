@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import "./css/AddBook.css";
 import { connect } from "react-redux";
 import { addBookAction } from "./actions/AddBookAction";
+import { toggleAddBookDialog } from "./actions/ToggleAddBookDialog";
 
 function AddBook(props) {
     let book = {
@@ -13,12 +14,9 @@ function AddBook(props) {
         category: "Productivity",
     };
 
-    let handleClose = () => {
-        props.onClose();
-    };
-
     let addBook = () => {
         props.addBook(book);
+        props.toggleAddBookDialog();
     };
 
     let onChange = (event) => {
@@ -26,7 +24,11 @@ function AddBook(props) {
     };
 
     return (
-        <Modal show={props.show} onHide={handleClose} centered>
+        <Modal
+            show={props.showAddBookDialog}
+            onHide={props.toggleAddBookDialog}
+            centered
+        >
             <Modal.Header closeButton>
                 <Modal.Title>Add Book</Modal.Title>
             </Modal.Header>
@@ -67,7 +69,7 @@ function AddBook(props) {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" onClick={props.toggleAddBookDialog}>
                     Close
                 </Button>
                 <Button variant="primary" onClick={addBook}>
@@ -78,10 +80,17 @@ function AddBook(props) {
     );
 }
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
     return {
-        addBook: (book) => dispatch(addBookAction(book)),
+        showAddBookDialog: state.referenceData.showAddBookDialog,
     };
 }
 
-export default connect(null, mapDispatchToProps)(AddBook);
+function mapDispatchToProps(dispatch) {
+    return {
+        addBook: (book) => dispatch(addBookAction(book)),
+        toggleAddBookDialog: () => dispatch(toggleAddBookDialog()),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddBook);

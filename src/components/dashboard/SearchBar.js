@@ -1,52 +1,27 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import SearchBox from "./SearchBox";
+import { connect } from "react-redux";
+import { toggleAddBookDialog } from "./actions/ToggleAddBookDialog";
 import AddBook from "./AddBook";
 import "./css/SearchBar.css";
-import { addBook } from "../../services/BookService";
+import SearchBox from "./SearchBox";
 
-export default class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showAddBook: false,
-        };
-        this.showAddBookDialog = this.showAddBookDialog.bind(this);
-        this.hideAddBookDialog = this.hideAddBookDialog.bind(this);
-        this.addBookData = this.addBookData.bind(this);
-    }
-
-    showAddBookDialog() {
-        this.setState({
-            showAddBook: true,
-        });
-    }
-
-    hideAddBookDialog() {
-        this.setState({
-            showAddBook: false,
-        });
-    }
-
-    addBookData(book) {
-        addBook(book);
-        this.hideAddBookDialog();
-        this.props.reloadBookList();
-    }
-
-    render() {
-        return (
-            <div className="search-bar">
-                <SearchBox />
-                <Button variant="primary" onClick={this.showAddBookDialog}>
-                    Add Book
-                </Button>
-                <AddBook
-                    show={this.state.showAddBook}
-                    onClose={this.hideAddBookDialog}
-                    addBook={this.addBookData}
-                />
-            </div>
-        );
-    }
+function SearchBar(props) {
+    return (
+        <div className="search-bar">
+            <SearchBox />
+            <Button variant="primary" onClick={props.toggleAddBookDialog}>
+                Add Book
+            </Button>
+            <AddBook />
+        </div>
+    );
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        toggleAddBookDialog: () => dispatch(toggleAddBookDialog()),
+    };
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
