@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const masterBookList = [
+let masterBookList = [
     {
         id: 1,
         title: "Deep Work",
@@ -34,7 +34,12 @@ const masterBookList = [
 ];
 
 export function getBooks() {
-    return axios.get('http://localhost:8081/books');
+    return axios.get('http://localhost:8081/books')
+        .then(response => {
+            masterBookList = response.data; 
+        }).catch(error => {
+            //  TODO: Do something in error scenario also
+        });
 }
 
 // export function getBooks(searchString = "") {
