@@ -1,4 +1,4 @@
-const ADD_BOOK = 'ADD_BOOK';
+export const ADD_BOOK = 'ADD_BOOK';
 
 export function addBookAction(book) {
     return {

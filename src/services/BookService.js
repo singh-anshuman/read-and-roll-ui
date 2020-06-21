@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const masterBookList = [
     {
         id: 1,
@@ -31,11 +33,15 @@ const masterBookList = [
     },
 ];
 
-export function getBooks(searchString = "") {
-    return masterBookList.filter((book) =>
-        book.title.toUpperCase().includes(searchString.toUpperCase())
-    );
+export function getBooks() {
+    return axios.get('http://localhost:8081/books');
 }
+
+// export function getBooks(searchString = "") {
+//     return masterBookList.filter((book) =>
+//         book.title.toUpperCase().includes(searchString.toUpperCase())
+//     );
+// }
 
 export function addBook(book) {
     masterBookList.unshift(
