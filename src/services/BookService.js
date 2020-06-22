@@ -36,12 +36,11 @@ let masterBookList = [
 ];
 
 export function getBooks() {
-    return axios.get(booksUrl)
-        .then(response => {
-            masterBookList = response.data; 
-        }).catch(error => {
-            //  TODO: Do something in error scenario also
-        });
+    axios.get(booksUrl).then(response => {
+        return response.data;
+    }).catch(error => {
+        return error.message;
+    });
 }
 
 // export function getBooks(searchString = "") {
