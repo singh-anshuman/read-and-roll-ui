@@ -10,5 +10,5 @@ export const store = createStore(
     combineReducers({
         books: bookReducer,
         referenceData: referenceDataReducer,
-    },composeEnhancers(applyMiddleware(reduxImmutableStateInvariant,thunk)))
+    },composeEnhancers(applyMiddleware(reduxImmutableStateInvariant(),thunk)))
 );

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const booksUrl = 'http://localhost:8081/books';
+
 let masterBookList = [
     {
         id: 1,
@@ -34,7 +36,7 @@ let masterBookList = [
 ];
 
 export function getBooks() {
-    return axios.get('http://localhost:8081/books')
+    return axios.get(booksUrl)
         .then(response => {
             masterBookList = response.data; 
         }).catch(error => {

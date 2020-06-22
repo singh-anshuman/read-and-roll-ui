@@ -17,7 +17,7 @@ function getBooksAction(data) {
     return { type: FETCH_BOOKS_SUCCESS,data };
 }
 
-export function getBook() {
+export function fetchBooks() {
     return dispatch => {
         getBooks.then(data => {
             dispatch(getBooksAction(data));

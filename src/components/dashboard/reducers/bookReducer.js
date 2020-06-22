@@ -2,7 +2,7 @@ import { addBook, getBooks } from "../../../services/BookService";
 import {ADD_BOOK} from '../actions/AddBookAction';
 import {SEARCH_BOOKS} from '../actions/SearchBooksAction';
 
-export default function bookReducer(state = getBooks(), action) {
+export default function bookReducer(state = [], action) {
     switch (action.type) {
         case ADD_BOOK:
             addBook(action.book);
