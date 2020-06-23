@@ -62,3 +62,9 @@ export function fetchBooks() {
         });
     }
 }
+
+export function toggleAddBookDialog() {
+    return {
+        type: bookActionTypes.TOGGLE_ADD_BOOK_DIALOG,
+    };
+}

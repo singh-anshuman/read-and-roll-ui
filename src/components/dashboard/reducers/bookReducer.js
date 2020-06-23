@@ -1,7 +1,6 @@
-import { addBook, getBooks } from "../../../services/BookService";
-import {ADD_BOOK} from '../actions/AddBookAction';
-import {SEARCH_BOOKS} from '../actions/SearchBooksAction';
-import { FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILURE } from '../actions/bookActionTypes';
+import { getBooks } from "../../../services/BookService";
+import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from '../actions/bookActionTypes';
+import { SEARCH_BOOKS } from '../actions/SearchBooksAction';
 
 const initialState = {
     loading: true
@@ -9,9 +8,6 @@ const initialState = {
 
 export default function bookReducer(state = initialState, action) {
     switch (action.type) {
-        case ADD_BOOK:
-            addBook(action.book);
-            return getBooks();
         case FETCH_BOOKS_REQUEST:
             return { loading: true};
         case FETCH_BOOKS_SUCCESS:

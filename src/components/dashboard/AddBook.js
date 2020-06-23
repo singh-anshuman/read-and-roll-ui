@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./css/AddBook.css";
 import { connect } from "react-redux";
-import { addBookAction } from "./actions/AddBookAction";
-import { toggleAddBookDialog } from "./actions/ToggleAddBookDialog";
+import * as bookActions from './actions/bookActions';
+import { bindActionCreators } from "redux";
 
 function AddBook(props) {
     let book = {
@@ -15,8 +15,8 @@ function AddBook(props) {
     };
 
     let addBook = () => {
-        props.addBook(book);
-        props.toggleAddBookDialog();
+        props.bookActions.addBook(book);
+        props.bookActions.toggleAddBookDialog();
     };
 
     let onChange = (event) => {
@@ -88,9 +88,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addBook: (book) => dispatch(addBookAction(book)),
-        toggleAddBookDialog: () => dispatch(toggleAddBookDialog()),
-    };
+        bookActions: bindActionCreators(bookActions,dispatch)
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddBook);
