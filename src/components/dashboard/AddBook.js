@@ -17,6 +17,7 @@ function AddBook(props) {
     let addBook = () => {
         props.bookActions.addBook(book);
         props.bookActions.toggleAddBookDialog();
+        props.bookActions.fetchBooks();
     };
 
     let onChange = (event) => {

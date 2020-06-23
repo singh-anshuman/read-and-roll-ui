@@ -1,16 +1,17 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
-import { toggleAddBookDialog } from "./actions/ToggleAddBookDialog";
+import * as bookActions from './actions/bookActions';
 import AddBook from "./AddBook";
 import "./css/SearchBar.css";
 import SearchBox from "./SearchBox";
+import { bindActionCreators } from "redux";
 
 function SearchBar(props) {
     return (
         <div className="search-bar">
             <SearchBox />
-            <Button variant="primary" onClick={props.toggleAddBookDialog}>
+            <Button variant="primary" onClick={props.bookActions.toggleAddBookDialog}>
                 Add Book
             </Button>
             <AddBook />
@@ -20,7 +21,7 @@ function SearchBar(props) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        toggleAddBookDialog: () => dispatch(toggleAddBookDialog()),
+        bookActions: bindActionCreators(bookActions,dispatch)
     };
 }
 
