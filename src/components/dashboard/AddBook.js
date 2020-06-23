@@ -17,7 +17,6 @@ function AddBook(props) {
     let addBook = () => {
         props.bookActions.addBook(book);
         props.bookActions.toggleAddBookDialog();
-        props.bookActions.fetchBooks();
     };
 
     let onChange = (event) => {
@@ -27,7 +26,7 @@ function AddBook(props) {
     return (
         <Modal
             show={props.showAddBookDialog}
-            onHide={props.toggleAddBookDialog}
+            onHide={props.bookActions.toggleAddBookDialog}
             centered
         >
             <Modal.Header closeButton>
@@ -70,7 +69,7 @@ function AddBook(props) {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={props.toggleAddBookDialog}>
+                <Button variant="secondary" onClick={props.bookActions.toggleAddBookDialog}>
                     Close
                 </Button>
                 <Button variant="primary" onClick={addBook}>

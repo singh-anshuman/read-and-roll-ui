@@ -46,6 +46,7 @@ export function addBook(book) {
         dispatch(addBookRequest());
         return BookService.addBook(book).then(response=> {
             dispatch(addBookSuccess(response.data));
+            dispatch(fetchBooks());
         }).catch(error => {
             dispatch(addBookFailure(error));
         });
