@@ -21,19 +21,6 @@ function loadBooksFailure(error) {
     }
 }
 
-function addBookRequest() {
-    return {
-        type: bookActionTypes.ADD_BOOK_REQUEST
-    }
-}
-
-function addBookSuccess(data) {
-    return {
-        type: bookActionTypes.ADD_BOOK_SUCCESS,
-        data
-    }
-}
-
 function addBookFailure(error) {
     return {
         type: bookActionTypes.ADD_BOOK_FAILURE,
@@ -43,9 +30,7 @@ function addBookFailure(error) {
 
 export function addBook(book) {
     return dispatch => {
-        dispatch(addBookRequest());
         return BookService.addBook(book).then(response=> {
-            dispatch(addBookSuccess(response.data));
             dispatch(fetchBooks());
         }).catch(error => {
             dispatch(addBookFailure(error));
