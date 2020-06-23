@@ -1,31 +1,61 @@
-import { getBooks } from '../../../services/BookService';
-import axios from 'axios';
-import {FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILURE} from './bookActionTypes';
+import * as BookService from '../../../services/BookService';
+import * as bookActionTypes from './bookActionTypes';
 
 function loadBooksRequest() {
     return {
-        type: FETCH_BOOKS_REQUEST
+        type: bookActionTypes.FETCH_BOOKS_REQUEST
     }
 }
 
 function loadBooksSuccess(data) {
     return {
-        type: FETCH_BOOKS_SUCCESS,
+        type: bookActionTypes.FETCH_BOOKS_SUCCESS,
         data
     }
 }
 
 function loadBooksFailure(error) {
     return {
-        type: FETCH_BOOKS_FAILURE,
+        type: bookActionTypes.FETCH_BOOKS_FAILURE,
         error
+    }
+}
+
+function addBookRequest() {
+    return {
+        type: bookActionTypes.ADD_BOOK_REQUEST
+    }
+}
+
+function addBookSuccess(data) {
+    return {
+        type: bookActionTypes.ADD_BOOK_SUCCESS,
+        data
+    }
+}
+
+function addBookFailure(error) {
+    return {
+        type: bookActionTypes.ADD_BOOK_FAILURE,
+        error
+    }
+}
+
+export function addBook(book) {
+    return dispatch => {
+        dispatch(addBookRequest());
+        return BookService.addBook(book).then(response=> {
+            dispatch(addBookSuccess(response.data));
+        }).catch(error => {
+            dispatch(addBookFailure(error));
+        });
     }
 }
 
 export function fetchBooks() {
     return (dispatch) => {
         dispatch(loadBooksRequest());
-        return getBooks().then(response => {
+        return BookService.getBooks().then(response => {
             dispatch(loadBooksSuccess(response.data));
         }).catch(error => {
             dispatch(loadBooksFailure(error));
