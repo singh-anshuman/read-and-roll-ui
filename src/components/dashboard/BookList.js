@@ -13,13 +13,19 @@ class BookList extends React.Component {
 
     render() {
         let props = this.props;
-        return (
-            <div className="book-list">
-                {props.books.map((book) => {
-                    return <BookCard key={book.id} book={book} />;
-                })}
-            </div>
-        );
+        if(!props.books.loading) {
+            return(
+                <div className="book-list">
+                    {props.books.data.map((book) => {
+                        return <BookCard key={book.id} book={book} />;
+                    })}
+                </div>
+            )
+        } else {
+            return(
+                <div>Loading books...</div>
+            )
+        }
     }
 }
 

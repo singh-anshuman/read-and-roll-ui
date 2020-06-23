@@ -3,8 +3,11 @@ import {ADD_BOOK} from '../actions/AddBookAction';
 import {SEARCH_BOOKS} from '../actions/SearchBooksAction';
 import { FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILURE } from '../actions/bookActionTypes';
 
+const initialState = {
+    loading: true
+}
 
-export default function bookReducer(state = [], action) {
+export default function bookReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_BOOK:
             addBook(action.book);

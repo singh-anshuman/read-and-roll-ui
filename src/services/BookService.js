@@ -36,11 +36,7 @@ let masterBookList = [
 ];
 
 export function getBooks() {
-    axios.get(booksUrl).then(response => {
-        return response.data;
-    }).catch(error => {
-        return error.message;
-    });
+    return axios.get(booksUrl);
 }
 
 // export function getBooks(searchString = "") {
