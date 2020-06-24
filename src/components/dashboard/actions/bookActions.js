@@ -22,6 +22,7 @@ function loadBooksFailure(error) {
 }
 
 function addBookFailure(error) {
+    //  TODO: Failure message should be shown and the dialog box should not be closed.
     return {
         type: bookActionTypes.ADD_BOOK_FAILURE,
         error
