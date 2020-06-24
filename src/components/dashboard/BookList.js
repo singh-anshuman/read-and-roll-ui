@@ -4,7 +4,7 @@ import BookListGrid from "./BookListGrid";
 
 export default function BookList(props) {
     return (
-        // <BookListCards/>
-        <BookListGrid/>
+        <BookListCards/>
+        // <BookListGrid/>
     )
 }
