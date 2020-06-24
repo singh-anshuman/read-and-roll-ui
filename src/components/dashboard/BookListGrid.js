@@ -21,7 +21,7 @@ class BookListGrid extends React.Component {
             { headerName: "Category", field: "category" }
         ];
         return (
-            <div className="ag-theme-alpine" style={ {height: '200px', width: '600px'} }>
+            <div className="ag-theme-alpine" style={ {height: '600px'} }>
                 <AgGridReact
                     columnDefs={columnDefs}
                     rowData={this.props.books.data}>
