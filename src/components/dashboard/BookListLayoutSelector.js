@@ -16,11 +16,14 @@ function BookListLayoutSelector(props) {
         props.bookActions.selectBooklistLayout('grid');
     }
 
+    const cardButtonVariant = props.bookListLayout === 'card' ? 'dark' : 'light';
+    const gridButtonVariant = props.bookListLayout !== 'card' ? 'dark' : 'light';
+
     return (
         <div className="book-list-layout-selector">
             <ButtonGroup aria-label="Basic example">
-                <Button variant="light" onClick={selectCardLayout}>Card</Button>
-                <Button variant="dark" onClick={selectGridLayout}>Grid</Button>
+                <Button variant={cardButtonVariant} onClick={selectCardLayout}>Card</Button>
+                <Button variant={gridButtonVariant} onClick={selectGridLayout}>Grid</Button>
             </ButtonGroup>
         </div>
     )
