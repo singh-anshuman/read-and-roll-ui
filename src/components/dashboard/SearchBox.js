@@ -1,8 +1,9 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import "./css/SearchBox.css";
-import { searchBooksAction } from "./actions/SearchBooksAction";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import "./css/SearchBox.css";
+import * as bookActions from './actions/bookActions';
 
 class SearchBox extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class SearchBox extends React.Component {
     }
 
     searchBooks(event) {
-        this.props.searchBooks(event.target.value);
+        this.props.bookActions.fetchBooks(event.target.value);
     }
 
     render() {
@@ -29,8 +30,7 @@ class SearchBox extends React.Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        searchBooks: (searchString) =>
-            dispatch(searchBooksAction(searchString)),
+        bookActions : bindActionCreators(bookActions,dispatch)
     };
 }
 

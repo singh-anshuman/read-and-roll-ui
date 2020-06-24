@@ -39,10 +39,10 @@ export function addBook(book) {
     }
 }
 
-export function fetchBooks() {
+export function fetchBooks(searchStr) {
     return (dispatch) => {
         dispatch(loadBooksRequest());
-        return BookService.getBooks().then(response => {
+        return BookService.getBooks(searchStr).then(response => {
             dispatch(loadBooksSuccess(response.data));
         }).catch(error => {
             dispatch(loadBooksFailure(error));
