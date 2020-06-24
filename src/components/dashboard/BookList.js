@@ -1,10 +1,14 @@
 import React from "react";
 import BookListCards from "./BookListCards";
 import BookListGrid from "./BookListGrid";
+import BookListLayoutSelector from './BookListLayoutSelector';
 
 export default function BookList(props) {
     return (
-        <BookListCards/>
-        // <BookListGrid/>
+        <div>
+            <BookListLayoutSelector/>
+            <BookListCards/>
+            {/* <BookListGrid/> */}
+        </div>
     )
 }
