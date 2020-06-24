@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as bookActions from './actions/bookActions';
 import BookCard from "./BookCard";
+import Spinner from 'react-bootstrap/Spinner';
 import "./css/BookListCards.css";
 
 
@@ -23,7 +24,7 @@ class BookListCards extends React.Component {
             )
         } else {
             return(
-                <div>Loading books...</div>
+                <Spinner animation="border" />
             )
         }    
     }
