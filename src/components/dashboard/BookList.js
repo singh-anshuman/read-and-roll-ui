@@ -2,13 +2,24 @@ import React from "react";
 import BookListCards from "./BookListCards";
 import BookListGrid from "./BookListGrid";
 import BookListLayoutSelector from './BookListLayoutSelector';
+import { connect } from "react-redux";
 
-export default function BookList(props) {
+function BookList(props) {
     return (
         <div>
             <BookListLayoutSelector/>
-            <BookListCards/>
-            {/* <BookListGrid/> */}
+            { props.bookListLayout==='card'
+            ? <BookListCards/>
+            : <BookListGrid/>
+            }
         </div>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        bookListLayout : state.referenceData.bookListLayout
+    }
+}
+
+export default connect(mapStateToProps)(BookList);

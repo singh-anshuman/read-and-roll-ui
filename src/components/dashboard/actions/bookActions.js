@@ -55,3 +55,10 @@ export function toggleAddBookDialog() {
         type: bookActionTypes.TOGGLE_ADD_BOOK_DIALOG,
     };
 }
+
+export function selectBooklistLayout(layout) {
+    return {
+        type: bookActionTypes.SELECT_BOOK_LIST_LAYOUT,
+        layout: layout
+    };
+}

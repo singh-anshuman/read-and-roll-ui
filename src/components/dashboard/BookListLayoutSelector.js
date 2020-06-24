@@ -7,11 +7,20 @@ import * as bookActions from './actions/bookActions';
 import './css/BookListLayoutSelector.css';
 
 function BookListLayoutSelector(props) {
+
+    function selectCardLayout() {
+        props.bookActions.selectBooklistLayout('card');
+    }
+
+    function selectGridLayout() {
+        props.bookActions.selectBooklistLayout('grid');
+    }
+
     return (
         <div className="book-list-layout-selector">
             <ButtonGroup aria-label="Basic example">
-                <Button variant="light">Card</Button>
-                <Button variant="dark">Grid</Button>
+                <Button variant="light" onClick={selectCardLayout}>Card</Button>
+                <Button variant="dark" onClick={selectGridLayout}>Grid</Button>
             </ButtonGroup>
         </div>
     )
